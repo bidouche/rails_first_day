@@ -30,4 +30,10 @@ end
 Commentco.create!(comment_id: rand(29),user: Faker::Company.name,commentco: Faker::Book.title)
 end
 
+10.times do
+Lesson.create!(title: Faker::Book.title)
+end
 
+100.times do
+Student.create!(lesson_id: rand(9) ,name: Faker::Book.title)
+end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_24_155256) do
+ActiveRecord::Schema.define(version: 2018_10_24_164813) do
 
   create_table "commentaires", force: :cascade do |t|
     t.integer "pin_id"
@@ -55,6 +55,12 @@ ActiveRecord::Schema.define(version: 2018_10_24_155256) do
     t.index ["cour_id"], name: "index_lecons_on_cour_id"
   end
 
+  create_table "lessons", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "links", force: :cascade do |t|
     t.string "url"
     t.string "user"
@@ -67,6 +73,14 @@ ActiveRecord::Schema.define(version: 2018_10_24_155256) do
     t.string "user"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.integer "lesson_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.index ["lesson_id"], name: "index_students_on_lesson_id"
   end
 
 end
