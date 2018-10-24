@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_24_145502) do
+ActiveRecord::Schema.define(version: 2018_10_24_155256) do
 
   create_table "commentaires", force: :cascade do |t|
     t.integer "pin_id"
@@ -19,6 +19,24 @@ ActiveRecord::Schema.define(version: 2018_10_24_145502) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["pin_id"], name: "index_commentaires_on_pin_id"
+  end
+
+  create_table "commentcos", force: :cascade do |t|
+    t.integer "comment_id"
+    t.string "user"
+    t.string "commentco"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_commentcos_on_comment_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "link_id"
+    t.string "comment"
+    t.string "user"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["link_id"], name: "index_comments_on_link_id"
   end
 
   create_table "cours", force: :cascade do |t|
@@ -35,6 +53,13 @@ ActiveRecord::Schema.define(version: 2018_10_24_145502) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cour_id"], name: "index_lecons_on_cour_id"
+  end
+
+  create_table "links", force: :cascade do |t|
+    t.string "url"
+    t.string "user"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "pins", force: :cascade do |t|

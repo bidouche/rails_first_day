@@ -18,3 +18,16 @@ end
 
 
 
+40.times do
+Link.create!(user: Faker::Company.name, url: Faker::Internet.url)
+end
+
+50.times do
+Comment.create!(link_id: rand(29), comment: Faker::Book.title, user: Faker::Company.name)
+end
+
+50.times do
+Commentco.create!(comment_id: rand(29),user: Faker::Company.name,commentco: Faker::Book.title)
+end
+
+
